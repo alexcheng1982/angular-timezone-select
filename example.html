@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" data-ng-app="timezoneSelectExample">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Angular timezone select example</title>
+    <link rel="stylesheet" href="./bower_components/select2/select2.css">
+    <style>
+      .timezone-select {
+        min-width: 300px;
+      }
+    </style>
+    <script src="./bower_components/jquery/dist/jquery.js"></script>
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/lodash/dist/lodash.js"></script>
+    <script src="./bower_components/select2/select2.js"></script>
+    <script src="./bower_components/moment/min/moment.min.js"></script>
+    <script src="./bower_components/moment-timezone/builds/moment-timezone-with-data.min.js"></script>
+    <script src="./dist/angular-timezone-select.js"></script>
+    <script type="text/javascript">
+      angular.module('timezoneSelectExample', ['angular-timezone-select']).constant('countryCode', 'CN');
+    </script>
+  </head>
+  <body>
+    <input class="timezone-select" timezone-select data-ng-model="timezone" data-country="countryCode">
+    <div>Selected: {{ timezone }}</div>
+  </body>
+</html>
