@@ -25,35 +25,56 @@ angular.module('angular-timezone-select', [])
         country: '='
       },
       link: function(scope, elem, attrs) {
-        var groups = _.groupBy(timezones, function(zone) {
-          return !!(scope.country && zones[scope.country] && _.find(zones[scope.country], function(zoneName) {
-            return zoneName === zone.name;
-          }));
-        });
-
         function transformTimezone(zone) {
           return {
             id: zone.name,
-            text: zone.name + ' ' + zone.offset
+            offset: zone.offset
           };
         }
 
-        elem.select2({
-          data: [{
-            text: 'UTC',
-            children: [
-              {
-                id: 'UTC',
-                text: 'UTC'
-              }
-            ]
-          }, {
-            text: 'Common',
-            children: _.map(groups[true], transformTimezone)
-          }, {
+        scope.$watch(attrs.country, function(country) {
+          var groups = _.groupBy(timezones, function(zone) {
+            return !!(country && zones[country] && _.find(zones[country], function(zoneName) {
+              return zoneName === zone.name;
+            }));
+          });
+
+          var data = [
+            {
+              text: 'UTC',
+              children: [
+                {
+                  id: 'UTC',
+                  offset: ''
+                }
+              ]
+            }
+          ];
+
+          if (groups[true]) {
+            data.push({
+              text: 'Common',
+              children: _.map(groups[true], transformTimezone)
+            });
+          }
+
+          data.push({
             text: 'Other',
             children: _.map(groups[false], transformTimezone)
-          }]
+          });
+
+          elem.select2({
+            data: data,
+            formatSelection: function(selection) {
+              return selection.id;
+            },
+            formatResult: function(result) {
+              if (!result.id) {
+                return result.text;
+              }
+              return "<strong>" + result.id + "</strong>  <small>" + result.offset + "</small>";
+            }
+          });
         });
       }
     };

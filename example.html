@@ -17,11 +17,22 @@
     <script src="./bower_components/moment-timezone/builds/moment-timezone-with-data.min.js"></script>
     <script src="./dist/angular-timezone-select.js"></script>
     <script type="text/javascript">
-      angular.module('timezoneSelectExample', ['angular-timezone-select']).constant('countryCode', 'CN');
+      angular.module('timezoneSelectExample', ['angular-timezone-select'])
+        .controller('TimezoneSelectCtrl', ['$scope', function($scope) {
+          $scope.country = 'CN';
+        }]);
     </script>
   </head>
   <body>
-    <input class="timezone-select" timezone-select data-ng-model="timezone" data-country="countryCode">
-    <div>Selected: {{ timezone }}</div>
+    <div data-ng-controller="TimezoneSelectCtrl">
+      Country:
+      <select data-ng-model="country">
+        <option value="CN">China</option>
+        <option value="NZ">New Zealand</option>
+      </select>
+      Timezone:
+      <input class="timezone-select" timezone-select data-ng-model="timezone" country="country">
+      <div>Selected: {{ timezone }}</div>
+    </div>
   </body>
 </html>
