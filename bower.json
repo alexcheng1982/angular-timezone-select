@@ -8,7 +8,7 @@
   "description": "Country timezone for AngularJS",
   "main": "dist/angular-timezone-select.js",
   "keywords": [
-    "country",
+    "timezone",
     "select"
   ],
   "license": "MIT",
