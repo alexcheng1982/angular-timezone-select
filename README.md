@@ -20,7 +20,7 @@ angular.module('timezoneSelectExample', ['angular-timezone-select']);
 Then use directive `timezone-select`.
 
 ```html
-<input class="timezone-select" timezone-select data-ng-model="timezone" country="country">
+<input timezone-select data-ng-model="timezone" country="country">
 ```
 
 Attribute `country` can be used to bind user's selected country. Value of selected country should be the [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code, e.g. `CN`, `US`.
