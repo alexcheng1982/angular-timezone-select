@@ -1,6 +1,6 @@
 {
   "name": "angular-timezone-select",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AngularJS timezone select",
   "main": "dist/angular-timezone-select.js",
   "scripts": {
@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/alexcheng1982/angular-timezone-select/issues"
   },
-  "homepage": "https://github.com/alexcheng1982/angular-timezone-select",
+  "homepage": "http://alexcheng1982.github.io/angular-timezone-select",
   "devDependencies": {
     "lodash": "latest",
     "uglify-js": "latest",
