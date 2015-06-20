@@ -9,6 +9,10 @@ In the dropdown, timezones are divided into three groups:
 
 If the user has already selected the country, timezones for the country will be listed first, which makes easier for user to select.
 
+## Install
+
+Install `angular-timezone-select` using Bower `bower install angular-timezone-select`.
+
 ## Usage
 
 Make your Angular module depend on module `angular-timezone-select`.
