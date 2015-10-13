@@ -1,6 +1,6 @@
 {
   "name": "angular-timezone-select",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "AngularJS timezone select",
   "main": "dist/angular-timezone-select.js",
   "scripts": {

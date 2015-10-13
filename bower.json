@@ -1,6 +1,6 @@
 {
   "name": "angular-timezone-select",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "homepage": "http://alexcheng1982.github.io/angular-timezone-select",
   "authors": [
     "Fu Cheng <alexcheng1982@gmail.com>"
@@ -24,6 +24,6 @@
     "select2": "~3.5.2",
     "moment": "~2.10.6",
     "moment-timezone": "~0.4.1",
-    "lodash": "~3.10.1"
+    "lodash": "~3.10.0"
   }
 }
