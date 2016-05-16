@@ -25,14 +25,21 @@ angular.module('angular-timezone-select', [])
         country: '='
       },
       link: function(scope, elem, attrs) {
+        var $select2;
         function transformTimezone(zone) {
           return {
             id: zone.name,
+            text: zone.name,
             offset: zone.offset
           };
         }
 
         scope.$watch(attrs.country, function(country) {
+          if ($select2) {
+            $select2.select2('destroy');
+            $select2.empty();
+          }
+
           var groups = _.groupBy(timezones, function(zone) {
             return !!(country && zones[country] && _.find(zones[country], function(zoneName) {
               return zoneName === zone.name;
@@ -45,7 +52,7 @@ angular.module('angular-timezone-select', [])
               children: [
                 {
                   id: 'UTC',
-                  offset: ''
+                  text: 'UTC'
                 }
               ]
             }
@@ -63,16 +70,20 @@ angular.module('angular-timezone-select', [])
             children: _.map(groups[false], transformTimezone)
           });
 
-          elem.select2({
+          console.log(data);
+
+          $select2 = elem.select2({
+            placeholder: 'Select a timezone',
+            allowClear: true,
+            width: 'resolve',
             data: data,
-            formatSelection: function(selection) {
-              return selection.id;
+            templateSelection: function(selection) {
+              return selection.text;
             },
-            formatResult: function(result) {
-              if (!result.id) {
-                return result.text;
-              }
-              return "<strong>" + result.id + "</strong>  <small>" + result.offset + "</small>";
+            templateResult: function(result) {
+              return result.offset
+                ? $("<strong>" + result.id + "</strong>  <small>" + result.offset + "</small>")
+                : result.text;
             }
           });
         });
