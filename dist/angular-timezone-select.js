@@ -70,8 +70,6 @@ angular.module('angular-timezone-select', [])
             children: _.map(groups[false], transformTimezone)
           });
 
-          console.log(data);
-
           $select2 = elem.select2({
             placeholder: 'Select a timezone',
             allowClear: true,
