@@ -11,7 +11,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <title>Angular-timezone-select by alexcheng1982</title>
-    <link rel="stylesheet" href="./bower_components/select2/select2.css">
+    <link rel="stylesheet" href="./bower_components/select2/dist/css/select2.css">
     <style>
       .timezone-select {
         min-width: 300px;
@@ -20,7 +20,7 @@
     <script src="./bower_components/jquery/dist/jquery.js"></script>
     <script src="./bower_components/angular/angular.js"></script>
     <script src="./bower_components/lodash/dist/lodash.js"></script>
-    <script src="./bower_components/select2/select2.js"></script>
+    <script src="./bower_components/select2/dist/js/select2.full.js"></script>
     <script src="./bower_components/moment/min/moment.min.js"></script>
     <script src="./bower_components/moment-timezone/builds/moment-timezone-with-data.min.js"></script>
     <script src="./dist/angular-timezone-select.js"></script>
@@ -99,7 +99,7 @@
     <option value="US">USA</option>
   </select>
   Timezone:
-  <input class="timezone-select" timezone-select data-ng-model="timezone" country="country">
+  <select class="timezone-select" timezone-select data-ng-model="timezone" country="country"></select>
   <div>Selected: {{ timezone }}</div>
 </div>
 
