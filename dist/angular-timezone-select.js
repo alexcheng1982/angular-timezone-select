@@ -34,6 +34,10 @@ angular.module('angular-timezone-select', [])
           };
         }
 
+        function getTranslatedValue(key, defaultValue) {
+          return attrs['i18n' + _.capitalize(key)] || defaultValue;
+        }
+
         scope.$watch(attrs.country, function(country) {
           if ($select2) {
             $select2.select2('destroy');
@@ -48,11 +52,11 @@ angular.module('angular-timezone-select', [])
 
           var data = [
             {
-              text: 'UTC',
+              text: getTranslatedValue('utc', 'UTC'),
               children: [
                 {
                   id: 'UTC',
-                  text: 'UTC'
+                  text:  getTranslatedValue('utc', 'UTC')
                 }
               ]
             }
@@ -60,13 +64,13 @@ angular.module('angular-timezone-select', [])
 
           if (groups[true]) {
             data.push({
-              text: 'Common',
+              text: getTranslatedValue('common', 'Common'),
               children: _.map(groups[true], transformTimezone)
             });
           }
 
           data.push({
-            text: 'Other',
+            text: getTranslatedValue('other', 'Other'),
             children: _.map(groups[false], transformTimezone)
           });
 

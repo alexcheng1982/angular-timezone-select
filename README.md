@@ -24,9 +24,24 @@ angular.module('timezoneSelectExample', ['angular-timezone-select']);
 Then use directive `timezone-select`.
 
 ```html
-<select timezone-select data-ng-model="timezone" country="country"></select>
+<select timezone-select data-ng-model="timezone" data-country="country"></select>
 ```
 
 Attribute `country` can be used to bind user's selected country. Value of selected country should be the [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code, e.g. `CN`, `US`.
 
 See `example.html` for a simple example.
+
+## Translations
+
+You can provide different Translations for timezone groups. See table below.
+
+|Attribute|Default value|
+|i18n-utc|UTC|
+|i18n-common|Common|
+|i18n-other|Other|
+
+For example,
+
+```html
+<select timezone-select data-ng-model="timezone" data-country="country" data-i18n-common="Common Timezones"></select>
+```
