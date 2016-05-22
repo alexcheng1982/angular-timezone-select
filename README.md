@@ -36,6 +36,7 @@ See `example.html` for a simple example.
 You can provide different Translations for timezone groups. See table below.
 
 |Attribute|Default value|
+|----|----|
 |i18n-utc|UTC|
 |i18n-common|Common|
 |i18n-other|Other|
