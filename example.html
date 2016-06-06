@@ -20,6 +20,7 @@
       angular.module('timezoneSelectExample', ['angular-timezone-select'])
         .controller('TimezoneSelectCtrl', ['$scope', function($scope) {
           $scope.country = 'CN';
+          $scope.timezone = window.moment.tz.guess();
         }]);
     </script>
   </head>

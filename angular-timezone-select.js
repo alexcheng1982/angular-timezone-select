@@ -18,11 +18,12 @@ angular.module('angular-timezone-select', [])
       return _.map(countries, 'name');
     });
   }])
-  .directive('timezoneSelect', ['_', 'timezones', 'zones', function(_, timezones, zones) {
+  .directive('timezoneSelect', ['_', 'timezones', 'zones', '$timeout', function(_, timezones, zones, $timeout) {
     return {
       restrict: 'A',
       scope: {
-        country: '='
+        country: '=',
+        ngModel: '='
       },
       link: function(scope, elem, attrs) {
         var $select2;
@@ -86,6 +87,13 @@ angular.module('angular-timezone-select', [])
               return result.offset
                 ? $("<strong>" + result.id + "</strong>  <small>" + result.offset + "</small>")
                 : result.text;
+            }
+          });
+          scope.$watch('ngModel', function(newValue, oldValue) {
+            if (!!newValue && newValue === oldValue) {
+              $timeout(function() {
+                $select2.val(newValue).trigger('change');
+              }, 0, false);
             }
           });
         });
