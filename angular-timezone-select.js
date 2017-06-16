@@ -39,7 +39,7 @@ angular.module('angular-timezone-select', [])
           return attrs['i18n' + _.capitalize(key)] || defaultValue;
         }
 
-        scope.$watch(attrs.country, function(country) {
+        scope.$watch('country', function(country) {
           if ($select2) {
             $select2.select2('destroy');
             $select2.empty();
