@@ -90,7 +90,7 @@ angular.module('angular-timezone-select', [])
             }
           });
           scope.$watch('ngModel', function(newValue, oldValue) {
-            if (!!newValue && newValue === oldValue) {
+            if (!!newValue) {
               $timeout(function() {
                 $select2.val(newValue).trigger('change');
               }, 0, false);
