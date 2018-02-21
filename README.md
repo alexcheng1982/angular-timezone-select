@@ -1,5 +1,7 @@
 # Timezone select for AngularJS
 
+__Note__ Only supports up to AngularJS `1.5.x`, see [this issue](https://github.com/alexcheng1982/angular-timezone-select/issues/14).
+
 A simple AngularJS directive to create timezone select. It uses [select2](http://select2.github.io/select2/) to create auto-complete timezone select. Timezone information comes from [moment](http://momentjs.com/timezone/). Countries timezone data comes from [TimezoneDB](http://timezonedb.com/download).
 
 In the dropdown, timezones are divided into three groups:
